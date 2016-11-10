@@ -4,3 +4,13 @@ c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\bin\Deb
 c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.csprojResolveAssemblyReference.cache
 c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.exe
 c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.pdb
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.exe.config
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.exe
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.pdb
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.csprojResolveAssemblyReference.cache
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\x86\sqlite3.dll
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\x64\sqlite3.dll
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.exe
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.pdb
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\Microsoft.Data.Sqlite.dll
+C:\Users\Jamie\workspace\backend\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\Microsoft.Data.Sqlite.xml
