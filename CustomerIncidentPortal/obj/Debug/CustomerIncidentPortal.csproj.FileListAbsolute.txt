@@ -1,0 +1,6 @@
+c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.exe.config
+c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.exe
+c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.pdb
+c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.csprojResolveAssemblyReference.cache
+c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.exe
+c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.pdb
