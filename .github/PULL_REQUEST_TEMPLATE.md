@@ -18,4 +18,4 @@ Include the applicable information from the list below here
 ## Link to Feature Ticket
 
 Provide the issue number that this pull request fixes
-Example: #12
+Example: #1
