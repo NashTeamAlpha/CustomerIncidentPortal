@@ -4,3 +4,9 @@ c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\bin\Deb
 c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.csprojResolveAssemblyReference.cache
 c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.exe
 c:\users\delaine\workspace\CustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.pdb
+C:\Bangazon\BangazonCustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.exe.config
+C:\Bangazon\BangazonCustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.exe
+C:\Bangazon\BangazonCustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.pdb
+C:\Bangazon\BangazonCustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.exe
+C:\Bangazon\BangazonCustomerIncidentPortal\CustomerIncidentPortal\bin\Debug\CustomerIncidentPortal.pdb
+C:\Bangazon\BangazonCustomerIncidentPortal\CustomerIncidentPortal\obj\Debug\CustomerIncidentPortal.csprojResolveAssemblyReference.cache
