@@ -53,8 +53,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="EmployeeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CustomerIncidentPortal\CustomerIncidentPortal.csproj">
+      <Project>{88404c7a-3c12-47b5-aa24-974bb77d8ccc}</Project>
+      <Name>CustomerIncidentPortal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
