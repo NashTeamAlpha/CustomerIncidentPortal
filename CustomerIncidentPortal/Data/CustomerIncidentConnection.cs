@@ -5,7 +5,7 @@ namespace CustomerIncidentPortal.Data
 {
     public class CustomerIncidentConnection
     {
-        private string _connectionString = System.Environment.GetEnvironmentVariable("NTABangazon_Incident_Db_Path");
+        private string _connectionString = $"Data Source = {Environment.GetEnvironmentVariable("NTABangazon_Incident_Db_Path")}";
 
         public void insert(string query)
         //This method executes every time you need to add something to the database.

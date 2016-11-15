@@ -31,20 +31,21 @@ Create Table Employees
 	LastName char (50) Not Null,
 	IsAdmin boolean Not Null,
 	DepartmentId integer Not Null,
+	StartDate DateTime Not Null,
 	Foreign Key (DepartmentId) References Departments(DepartmentId)
 );
-Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId) 
-values ('Grant', 'Regnier', 'false', '1');
-Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId) 
-values ('Chris', 'Smalley', 'True', '2');
-Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId) 
-values ('Zack', 'Repass', 'false', '3');
-Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId) 
-values ('Delaine', 'Wendling', 'True', '4');
-Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId) 
-values ('Jamie', 'Duke', 'false', '5');
-Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId) 
-values ('Debbie', 'Bourne', 'True', '5');
+Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId, StartDate) 
+values ('Grant', 'Regnier', 'false', '1', '2013-11-3');
+Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId, StartDate) 
+values ('Chris', 'Smalley', 'True', '2', '2013-11-3');
+Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId, StartDate) 
+values ('Zack', 'Repass', 'false', '3', '2013-11-3');
+Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId, StartDate) 
+values ('Delaine', 'Wendling', 'True', '4', '2013-11-3');
+Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId, StartDate) 
+values ('Jamie', 'Duke', 'false', '5', '2013-11-3');
+Insert Into Employees (FirstName, LastName, IsAdmin, DepartmentId, StartDate) 
+values ('Debbie', 'Bourne', 'True', '5', '2013-11-3');
 
 Create Table Incidents
 (
@@ -52,7 +53,8 @@ Create Table Incidents
 	Resolution char (225) Null,
 	IsResolved boolean Not Null,
 	EmployeeId integer Not Null,
-	CustomerId integer Not Null,
-	Foreign Key (EmployeeId) References Employees(EmployeeId),
-	Foreign Key (CustomerId) References Customer(CustomerId)
+	OrderId integer Not Null,
+	CustomerFirstName char (50) Not Null,
+	CustomerLastName char (50) Not Null,
+	Foreign Key (EmployeeId) References Employees(EmployeeId)
 );
