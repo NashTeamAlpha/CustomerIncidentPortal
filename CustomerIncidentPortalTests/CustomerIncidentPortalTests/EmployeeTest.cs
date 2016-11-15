@@ -75,6 +75,14 @@ namespace CustomerIncidentPortalTests
         }
 
         [TestMethod]
+        public void TestEmployeeFactoryIsASingleton()
+        {
+            EmployeeFactory employeeFactory = EmployeeFactory.Instance;
+            EmployeeFactory employeeFactory2 = EmployeeFactory.Instance;
+            Assert.AreEqual(employeeFactory, employeeFactory2);
+        }
+
+        [TestMethod]
         public void TestEmployeeCanBeSelectedByNameAndMultiplesCanBeReturned ()
         {
             EmployeeFactory employeeFactory = new EmployeeFactory();

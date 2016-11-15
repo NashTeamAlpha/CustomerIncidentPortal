@@ -11,6 +11,20 @@ namespace CustomerIncidentPortal.Factories
 {
     public class EmployeeFactory
     {
+
+        private static EmployeeFactory _instance;
+        public static EmployeeFactory Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new EmployeeFactory();
+                }
+                return _instance;
+            }
+        }
+
         private Employee _activeEmployee = null;
         public Employee ActiveEmployee
         {

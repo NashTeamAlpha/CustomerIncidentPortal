@@ -6,11 +6,13 @@ using CustomerIncidentPortal.Entities;
 
 namespace CustomerIncidentPortal.Actions
 {
-    class ChooseExistingEmployee
+    public class ChooseExistingEmployee
     {
         public static void Action ()
         {
-            EmployeeFactory employeeFactory = new EmployeeFactory();
+
+            EmployeeFactory employeeFactory = EmployeeFactory.Instance;
+            EmployeeFactory employeeFactory2 = EmployeeFactory.Instance;
 
             Banner.Action();
 
