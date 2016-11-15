@@ -11,6 +11,19 @@ namespace CustomerIncidentPortal.Factories
 {
     public class EmployeeFactory
     {
+        private Employee _activeEmployee = null;
+        public Employee ActiveEmployee
+        {
+            get
+            {
+                return _activeEmployee;
+            }
+            set
+            {
+                _activeEmployee = value;
+            }
+        }
+
         public Employee getEmployee(Employee employee)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
@@ -33,6 +46,30 @@ namespace CustomerIncidentPortal.Factories
                 }
             });
             return e;
+        }
+
+        public List<Employee> GetEmployeeByName (String FirstName, String LastName)
+        {
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            List<Employee> EmployeeList = new List<Employee>();
+
+            conn.execute($"SELECT EmployeeId, FirstName, LastName, IsAdmin, DepartmentId, StartDate FROM Employees WHERE Employees.FirstName = '{FirstName}' AND Employees.LastName = '{LastName}'",
+            (SqliteDataReader reader) =>
+            {
+                while (reader.Read())
+                {
+                    EmployeeList.Add(new Employee
+                    {
+                        EmployeeId = reader.GetInt32(0),
+                        FirstName = reader[1].ToString(),
+                        LastName = reader[2].ToString(),
+                        IsAdmin = reader[3].ToString(),
+                        DepartmentId = reader.GetInt32(4),
+                        StartDate = reader.GetDateTime(5)
+                    });
+                }
+            });
+            return EmployeeList;
         }
     }
 }

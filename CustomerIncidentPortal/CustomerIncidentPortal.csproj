@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\Banner.cs" />
+    <Compile Include="Actions\ChooseExistingEmployee.cs" />
     <Compile Include="Data\BangazonWebConnection.cs" />
     <Compile Include="Data\CustomerIncidentConnection.cs" />
     <Compile Include="Entities\Employee.cs" />
