@@ -51,7 +51,7 @@ namespace CustomerIncidentPortalTests
         [TestMethod]
         public void TestEmployeeIsASingleton()
         {
-            EmployeeFactory employeeFactory = new EmployeeFactory();
+            EmployeeFactory employeeFactory = EmployeeFactory.Instance;
 
             Employee Bob = new Employee();
             Bob.FirstName = "Bob";
@@ -85,7 +85,7 @@ namespace CustomerIncidentPortalTests
         [TestMethod]
         public void TestEmployeeCanBeSelectedByNameAndMultiplesCanBeReturned ()
         {
-            EmployeeFactory employeeFactory = new EmployeeFactory();
+            EmployeeFactory employeeFactory = EmployeeFactory.Instance;
 
             Employee SelectByName = new Employee();
             SelectByName.FirstName = "FirstNameTest";

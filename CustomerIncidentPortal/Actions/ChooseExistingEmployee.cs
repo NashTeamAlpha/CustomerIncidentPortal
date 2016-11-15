@@ -12,17 +12,28 @@ namespace CustomerIncidentPortal.Actions
         {
 
             EmployeeFactory employeeFactory = EmployeeFactory.Instance;
-            EmployeeFactory employeeFactory2 = EmployeeFactory.Instance;
 
             Banner.Action();
 
-            Console.WriteLine("Welcome Employee, enter your first and last name to log in");
+            Console.WriteLine("Welcome Employee, enter your first and last name to log in\r\nOr enter 'new user' to make a new account");
+
             string EmployeeName = Console.ReadLine();
 
             string[] EmployeeNameArray = EmployeeName.Split(new char[] { ' ' });
 
-            string EmployeeFirstName = EmployeeNameArray[0];
-            string EmployeeLastName = EmployeeNameArray[1];
+            string EmployeeFirstName = null;
+            string EmployeeLastName = null;
+
+            try
+            {
+                EmployeeFirstName = EmployeeNameArray[0];
+                EmployeeLastName = EmployeeNameArray[1];
+            }
+            catch
+            {
+                Console.WriteLine("\r\nInvalid Entry\r\n");
+                Action();
+            }
 
             List<Employee> ListOfEmployees = employeeFactory.GetEmployeeByName(EmployeeFirstName, EmployeeLastName);
 
@@ -44,11 +55,11 @@ namespace CustomerIncidentPortal.Actions
                 {
                     Console.WriteLine($"ID: {employee.EmployeeId} {employee.FirstName} {employee.LastName} Start Date: {employee.StartDate}"); 
                 }
-
-                int Choice = Int32.Parse(Console.ReadLine());
-
+           
                 try
                 {
+                    int Choice = Int32.Parse(Console.ReadLine());
+
                     Employee SelectedEmployee = ListOfEmployees.Where(e => e.EmployeeId == Choice).Single();
 
                     employeeFactory.ActiveEmployee = SelectedEmployee;
