@@ -5,7 +5,7 @@ namespace CustomerIncidentPortal.Data
 {
     public class BangazonWebConnection
     {
-        private string _connectionString = $"Data Source = {Environment.GetEnvironmentVariable("NTABangazonWeb_DB_Path")}";
+        private string _connectionString = $"Data Source = {Environment.GetEnvironmentVariable("NTABangazonWeb_Db_Path")}";
 
         public void insert(string query)
         {
