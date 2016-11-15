@@ -54,7 +54,9 @@ Create Table Incidents
 	IsResolved boolean Not Null,
 	EmployeeId integer Not Null,
 	OrderId integer Not Null,
+	IncidentTypeId integer Not Null,
 	CustomerFirstName char (50) Not Null,
 	CustomerLastName char (50) Not Null,
-	Foreign Key (EmployeeId) References Employees(EmployeeId)
+	Foreign Key (EmployeeId) References Employees(EmployeeId),
+	Foreign Key (IncidentTypeId) References IncidentTypes(IncidentTypeId)
 );
