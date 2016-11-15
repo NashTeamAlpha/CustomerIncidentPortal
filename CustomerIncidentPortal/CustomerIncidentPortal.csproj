@@ -53,8 +53,12 @@
   <ItemGroup>
     <Compile Include="Data\BangazonWebConnection.cs" />
     <Compile Include="Data\CustomerIncidentConnection.cs" />
+    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Incident.cs" />
+    <Compile Include="Factories\CustomerFactory.cs" />
     <Compile Include="Factories\EmployeeFactory.cs" />
+    <Compile Include="Factories\IncidentFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
