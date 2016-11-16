@@ -12,7 +12,7 @@ namespace CustomerIncidentPortalTests
         [TestMethod]
         public void TestGetCustomerToAddToIncident()
         {
-             Customer TestCustomer = new Customer();
+            Customer TestCustomer = new Customer();
             TestCustomer.FirstName = "James";
             TestCustomer.LastName = "Regnier";
             CustomerFactory customerFactory = new CustomerFactory();
@@ -22,12 +22,61 @@ namespace CustomerIncidentPortalTests
                 Assert.AreEqual(TestCustomer.FirstName, Customers[i].FirstName);
                 Assert.AreEqual(TestCustomer.LastName, Customers[i].LastName);
             }
-
-            //TODO Customer Entity, Customer Factory
-       
         }
 
-                //CustomerFactory.GetCustomerOrders(Customers[0].CustomerId);
+        [TestMethod]
+        public void TestGetOrdersToAddToIncidentThatMatchCustomer()
+        {
+            Order testOrder = new Order();
+            testOrder.CustomerId = 1;
+            CustomerFactory customerFactory = new CustomerFactory();
+            List<Order> orders = customerFactory.GetOrders(testOrder.CustomerId);
+            for (var i = 0; i < orders.Count; i++)
+            {
+                Assert.AreEqual(testOrder.CustomerId, orders[i].CustomerId);
+            }
+        }
+
+        [TestMethod]
+        public void TestIncidentIsASingleton()
+        {
+            IncidentFactory incidentFactory = IncidentFactory.Instance;
+
+            Incident TestIncident = new Incident();
+            TestIncident.IncidentId = 1;
+            TestIncident.Resolution = "Resolved";
+            TestIncident.IsResolved = "True";
+            TestIncident.EmployeeId = 1;
+            TestIncident.OrderId = 1;
+            TestIncident.CustomerFirstName = "James";
+            TestIncident.CustomerLastName = "Regnier";
+            TestIncident.IncidentTypeId = 1;
+
+            incidentFactory.ActiveIncident = TestIncident;
+            Assert.AreEqual(incidentFactory.ActiveIncident, TestIncident);
+
+            Incident TestIncident2 = new Incident();
+            TestIncident2.IncidentId = 2;
+            TestIncident2.Resolution = "";
+            TestIncident2.IsResolved = "false";
+            TestIncident2.EmployeeId = 2;
+            TestIncident2.OrderId = 45;
+            TestIncident2.CustomerFirstName = "TestCustomerFirstName";
+            TestIncident2.CustomerLastName = "TestCustomerLastName";
+            TestIncident2.IncidentTypeId = 1;
+
+            incidentFactory.ActiveIncident = TestIncident2;
+            Assert.AreEqual(incidentFactory.ActiveIncident, TestIncident2);
+        }
+
+        [TestMethod]
+        public void TestIncidentFactoryIsASingleton()
+        {
+            IncidentFactory incidentFactory = IncidentFactory.Instance;
+            IncidentFactory incidentFactory2 = IncidentFactory.Instance;
+            Assert.AreEqual(incidentFactory, incidentFactory2);
+        }
+
         [TestMethod]
         public void TestCanCreateIncident()
         {

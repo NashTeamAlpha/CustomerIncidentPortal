@@ -11,6 +11,31 @@ namespace CustomerIncidentPortal.Factories
 {
     public class IncidentFactory
     {
+        private static IncidentFactory _instance;
+        public static IncidentFactory Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new IncidentFactory();
+                }
+                return _instance;
+            }
+        }
+
+        private Incident _activeIncident = null;
+        public Incident ActiveIncident
+        {
+            get
+            {
+                return _activeIncident;
+            }
+            set
+            {
+                _activeIncident = value;
+            }
+        }
         public Incident getIncident(Incident incident)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();

@@ -16,7 +16,7 @@ namespace CustomerIncidentPortal.Factories
             BangazonWebConnection Conn = new BangazonWebConnection();
             List<Customer> customerList = new List<Customer>() ;
 
-            string query = $"select CustomerId, FirstName, LastName from Customer Where '{customer.FirstName} = Customer.FirstName' And '{customer.LastName} = Customer.LastName'";
+            string query = $"select CustomerId, FirstName, LastName from Customer Where '{customer.FirstName}' = Customer.FirstName And '{customer.LastName}' = Customer.LastName";
             Conn.execute(query, (SqliteDataReader reader) =>
             {
                 while (reader.Read())
@@ -30,6 +30,26 @@ namespace CustomerIncidentPortal.Factories
                 }
             });
             return customerList;
+        }
+        public List<Order> GetOrders(int customerId)
+        {
+            BangazonWebConnection Conn = new BangazonWebConnection();
+            List<Order> orderList = new List<Order>();
+
+            string query = $"select OrderId, DateCompleted, CustomerId from 'Order' Where '{customerId}' = CustomerId";
+            Conn.execute(query, (SqliteDataReader reader) =>
+            {
+                while (reader.Read())
+                {
+                    orderList.Add(new Order
+                    {
+                        OrderId = reader.GetInt32(0),
+                        DateCompleted = reader[1].ToString(),
+                        CustomerId = reader.GetInt32(2)
+                    });
+                }
+            });
+            return orderList;
         }
     }
 }
