@@ -127,5 +127,37 @@ namespace CustomerIncidentPortalTests
             //Gets all orders for that name
 
         }
-     }
+
+        [TestMethod]
+        public void TestCanCreateOrder()
+        {
+            Order TestOrder = new Order();
+            Assert.IsNotNull(TestOrder);
+            TestOrder.OrderId = 1;
+            TestOrder.DateCompleted = "2016-11-10";
+            TestOrder.CustomerId = 1;
+            Assert.AreEqual(TestOrder.OrderId, 1);
+            Assert.AreEqual(TestOrder.DateCompleted, "2016-11-10");
+            Assert.AreEqual(TestOrder.CustomerId, 1);
+        }
+
+        [TestMethod]
+        public void TestCanCreateIncidentType()
+        {
+            IncidentType TestIncidentType = new IncidentType();
+            Assert.IsNotNull(TestIncidentType);
+            TestIncidentType.IncidentTypeId = 1;
+            TestIncidentType.IncidentTypeName = "Defective Product";
+            Assert.AreEqual(TestIncidentType.IncidentTypeId, 1);
+            Assert.AreEqual(TestIncidentType.IncidentTypeName, "Defective Product");
+        }
+
+        [TestMethod]
+        public void TestCanGetIncident()
+        {
+            IncidentFactory incidentFactory = new IncidentFactory();
+            List<IncidentType> ListOfIncidentTypes = incidentFactory.GetIncidentTypes();
+            Assert.AreEqual(ListOfIncidentTypes.Count, 7);
+        }
+    }
 }

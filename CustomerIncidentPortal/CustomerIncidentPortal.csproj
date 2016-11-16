@@ -59,6 +59,7 @@
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Incident.cs" />
+    <Compile Include="Entities\IncidentType.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Factories\CustomerFactory.cs" />
     <Compile Include="Factories\EmployeeFactory.cs" />
