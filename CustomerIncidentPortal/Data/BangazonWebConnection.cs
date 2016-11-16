@@ -3,14 +3,14 @@ using Microsoft.Data.Sqlite;
 
 namespace CustomerIncidentPortal.Data
 {
-    public class BangazonWebConnexction
+    public class BangazonWebConnection
     {
-        private string _connectionString = Environment.GetEnvironmentVariable("NTABangazonWebPath");
+        private string _connectionString = $"Data Source = {Environment.GetEnvironmentVariable("NTABangazonWeb_Db_Path")}";
 
         public void insert(string query)
         {
             SqliteConnection dbcon = new SqliteConnection(_connectionString);
-
+            
             dbcon.Open();
             SqliteCommand dbcmd = dbcon.CreateCommand();
 
