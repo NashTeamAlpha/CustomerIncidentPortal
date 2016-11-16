@@ -34,7 +34,10 @@ namespace CustomerIncidentPortal.Actions
                 Console.WriteLine("\r\nInvalid Entry\r\n");
                 Action();
             }
-
+            if (EmployeeFirstName == "new" && EmployeeLastName == "user")
+            {
+                NewUser.Action();
+            }
             List<Employee> ListOfEmployees = employeeFactory.GetEmployeeByName(EmployeeFirstName, EmployeeLastName);
 
             if(ListOfEmployees.Count == 0)
@@ -71,7 +74,7 @@ namespace CustomerIncidentPortal.Actions
                     Action();
                 }
             }
-            Console.ReadLine(); //Replace with MainMenu.Action() After it's been created.
+            MainMenu.Action();
         }
     }
 }
