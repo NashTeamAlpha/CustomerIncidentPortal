@@ -81,6 +81,7 @@ namespace CustomerIncidentPortal.Factories
                         StartDate = reader.GetDateTime(5)
                     });
                 }
+                reader.Close();
             });
             return EmployeeList;
         }

@@ -22,6 +22,7 @@ namespace CustomerIncidentPortal.Factories
                         DepartmentName = reader[1].ToString(),
                     });
                 }
+                reader.Close();
             });
             return DepartmentList;
         }

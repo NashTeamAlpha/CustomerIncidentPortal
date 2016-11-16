@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CustomerIncidentPortal.Entities;
+﻿using CustomerIncidentPortal.Entities;
 using CustomerIncidentPortal.Data;
 using Microsoft.Data.Sqlite;
 
@@ -30,6 +25,7 @@ namespace CustomerIncidentPortal.Factories
                         IsResolved = reader[7].ToString()
                     };
                 }
+                reader.Close();
             });
             return i;
         }
