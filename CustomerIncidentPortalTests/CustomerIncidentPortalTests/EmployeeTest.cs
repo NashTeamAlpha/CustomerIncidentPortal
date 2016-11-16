@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CustomerIncidentPortal.Entities;
 using CustomerIncidentPortal.Factories;
+using CustomerIncidentPortal.Data;
 
 namespace CustomerIncidentPortalTests
 {
@@ -15,14 +16,14 @@ namespace CustomerIncidentPortalTests
             Employee Bob = new Employee();
             Assert.IsNotNull(Bob);
             Bob.EmployeeId = 1;
-            Bob.FirstName = "Bob";
-            Bob.LastName = "Sanders";
+            Bob.FirstName = "EmployeeFirstNameTest";
+            Bob.LastName = "EmployeeLastNameTest";
             Bob.IsAdmin = "false";
             Bob.DepartmentId = 2;
             Bob.StartDate = DateTime.Today;
             Assert.AreEqual(Bob.EmployeeId, 1);
-            Assert.AreEqual(Bob.FirstName, "Bob");
-            Assert.AreEqual(Bob.LastName, "Sanders");
+            Assert.AreEqual(Bob.FirstName, "EmployeeFirstNameTest");
+            Assert.AreEqual(Bob.LastName, "EmployeeLastNameTest");
             Assert.AreEqual(Bob.IsAdmin, "false");
             Assert.AreEqual(Bob.DepartmentId, 2);
             Assert.AreEqual(Bob.StartDate, DateTime.Today);
@@ -32,8 +33,8 @@ namespace CustomerIncidentPortalTests
        public void TestEmployeeCanBeSavedToDB()
         {
             Employee Bob = new Employee();
-            Bob.FirstName = "Bob";
-            Bob.LastName = "Sanders";
+            Bob.FirstName = "EmployeeFirstNameTest";
+            Bob.LastName = "EmployeeLastNameTest";
             Bob.IsAdmin = "false";
             Bob.DepartmentId = 2;
             Bob.StartDate = DateTime.Today;
@@ -46,6 +47,9 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(shouldBeBob.IsAdmin, Bob.IsAdmin);
             Assert.AreEqual(shouldBeBob.DepartmentId, Bob.DepartmentId);
             Assert.AreEqual(shouldBeBob.StartDate, Bob.StartDate);
+
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            conn.insert("DELETE FROM Employees WHERE Employees.FirstName = 'EmployeeFirstNameTest'");
         }
 
         [TestMethod]
@@ -116,6 +120,9 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(ListOfEmployeesWithSameName[1].IsAdmin, SelectByName2.IsAdmin);
             Assert.AreEqual(ListOfEmployeesWithSameName[1].DepartmentId, SelectByName2.DepartmentId);
             Assert.AreEqual(ListOfEmployeesWithSameName[1].StartDate, SelectByName2.StartDate);
+
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            conn.insert("DELETE FROM Employees WHERE Employees.FirstName = 'FirstNameTest'");
         }
     }
 }

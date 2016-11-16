@@ -8,7 +8,7 @@ namespace CustomerIncidentPortal.Actions
 {
     public class ChooseExistingEmployee
     {
-        public static void Action ()
+        public static void Action()
         {
 
             EmployeeFactory employeeFactory = EmployeeFactory.Instance;
@@ -71,7 +71,6 @@ namespace CustomerIncidentPortal.Actions
                     Action();
                 }
             }
-
             Console.ReadLine(); //Replace with MainMenu.Action() After it's been created.
         }
     }
