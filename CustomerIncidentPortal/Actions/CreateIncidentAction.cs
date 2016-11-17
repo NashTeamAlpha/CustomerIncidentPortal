@@ -125,7 +125,7 @@ namespace CustomerIncidentPortal.Actions
                     incidentFactory.ActiveIncident.EmployeeId = employeeFactory.ActiveEmployee.EmployeeId;
                     incidentFactory.ActiveIncident.Save();
                     //Should call the incident detail action
-                    Console.ReadLine();
+                    IncidentDetail.Action();
                 }
                 catch
                 {

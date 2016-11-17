@@ -10,5 +10,7 @@ namespace CustomerIncidentPortal.Entities
     {
         public int IncidentTypeId { get; set; }
         public string IncidentTypeName { get; set; }
+        public string Label1 { get; set; }
+        public string Label2 { get; set; }
     }
 }

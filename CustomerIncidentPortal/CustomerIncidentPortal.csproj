@@ -54,6 +54,7 @@
     <Compile Include="Actions\Banner.cs" />
     <Compile Include="Actions\ChooseExistingEmployee.cs" />
     <Compile Include="Actions\CreateIncidentAction.cs" />
+    <Compile Include="Actions\IncidentDetail.cs" />
     <Compile Include="Actions\MainMenu.cs" />
     <Compile Include="Actions\NewUser.cs" />
     <Compile Include="Data\BangazonWebConnection.cs" />

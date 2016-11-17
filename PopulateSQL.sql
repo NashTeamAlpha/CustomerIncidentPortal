@@ -13,16 +13,19 @@ INSERT INTO Departments (DepartmentName) VALUES ('Home Furnishings');
 Create Table IncidentTypes
 (
 	IncidentTypeId integer Not Null Primary Key,
-	IncidentTypeName char (50) Not Null
+	IncidentTypeName char (50) Not Null,
+	Label1 char(255),
+	Label2 char(255)
 );
 
-INSERT INTO IncidentTypes (IncidentTypeName) VALUES ('Defective Product');
-INSERT INTO IncidentTypes (IncidentTypeName) VALUES ('Product Not Delivered');
-INSERT INTO IncidentTypes (IncidentTypeName) VALUES ('Unhappy With Product');
-INSERT INTO IncidentTypes (IncidentTypeName) VALUES ('Request For Information');
-INSERT INTO IncidentTypes (IncidentTypeName) VALUES ('Fraudulent Charge');
-INSERT INTO IncidentTypes (IncidentTypeName) VALUES ('Shipping Info Update');
-INSERT INTO IncidentTypes (IncidentTypeName) VALUES ('Other');
+INSERT INTO IncidentTypes (IncidentTypeName, Label1, Label2) VALUES ('Defective Product', 'This order is replaceable', 'This order is refundable');
+INSERT INTO IncidentTypes (IncidentTypeName, Label1, Label2) VALUES ('Product Not Delivered', 'This order is replaceable', 'This order is refundable');
+INSERT INTO IncidentTypes (IncidentTypeName, Label1, Label2) VALUES ('Unhappy With Product', 'This order is replaceable', 'This order is refundable');
+INSERT INTO IncidentTypes (IncidentTypeName, Label1, Label2) VALUES ('Request For Information', 'Non-Transactional Incident', '');
+INSERT INTO IncidentTypes (IncidentTypeName, Label1, Label2) VALUES ('Fraudulent Charge', 'This order is refundable', '');
+INSERT INTO IncidentTypes (IncidentTypeName, Label1, Label2) VALUES ('Shipping Info Update', 'Non-Transactional Incident', '');
+INSERT INTO IncidentTypes (IncidentTypeName, Label1, Label2) VALUES ('Other', 'Contact Administrator if unsure how to proceed', '');
+
 
 Create Table Employees
 (
