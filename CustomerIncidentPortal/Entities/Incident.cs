@@ -24,6 +24,11 @@ namespace CustomerIncidentPortal.Entities
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
             conn.insert($"insert into Incidents (Resolution, IsResolved, EmployeeId, OrderId, IncidentTypeId, CustomerFirstName, CustomerLastName) values ('{this.Resolution}','{this.IsResolved}', '{this.EmployeeId}', '{this.OrderId}', '{this.IncidentTypeId}', '{this.CustomerFirstName}', '{this.CustomerLastName}')");
         }
+        public void Update()
+        {
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            conn.insert($"update Incidents set Resolution = '{this.Resolution}', IsResolved = 'True' where IncidentId = '{this.IncidentId}'"); 
+        }
     }
 }
 

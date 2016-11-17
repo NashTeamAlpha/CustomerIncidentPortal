@@ -56,6 +56,7 @@
     <Compile Include="Actions\CreateIncidentAction.cs" />
     <Compile Include="Actions\IncidentReport.cs" />
     <Compile Include="Actions\ListIncidents.cs" />
+    <Compile Include="Actions\IncidentDetail.cs" />
     <Compile Include="Actions\MainMenu.cs" />
     <Compile Include="Actions\NewUser.cs" />
     <Compile Include="Data\BangazonWebConnection.cs" />
