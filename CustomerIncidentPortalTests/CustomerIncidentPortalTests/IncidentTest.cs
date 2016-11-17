@@ -178,5 +178,14 @@ namespace CustomerIncidentPortalTests
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
             conn.insert("DELETE FROM Incidents WHERE Incidents.Resolution = 'Resolved' and Incidents.EmployeeId = '1' and Incidents.OrderId = '1'");
         }
+
+        [TestMethod]
+        public void TestCanGetAllIncidents()
+        {
+            IncidentFactory incidentFactory = IncidentFactory.Instance;
+
+            List<Incident> ListOfAllIncidents = incidentFactory.GetAllIncidents();
+            Assert.IsTrue(ListOfAllIncidents.Count > 0);
+        }
     }
 }

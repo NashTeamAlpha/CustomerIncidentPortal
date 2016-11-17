@@ -85,5 +85,30 @@ namespace CustomerIncidentPortal.Factories
             });
             return EmployeeList;
         }
+
+        public List<Employee> GetAllEmployees()
+        {
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            List<Employee> ListOfAllEmployees = new List<Employee>();
+
+            conn.execute($"SELECT EmployeeId, FirstName, LastName, IsAdmin, DepartmentId, StartDate FROM Employees",
+                (SqliteDataReader reader) =>
+                {
+                    while (reader.Read())
+                    {
+                        ListOfAllEmployees.Add(new Employee
+                        {
+                            EmployeeId = reader.GetInt32(0),
+                            FirstName = reader[1].ToString(),
+                            LastName = reader[2].ToString(),
+                            IsAdmin = reader[3].ToString(),
+                            DepartmentId = reader.GetInt32(4),
+                            StartDate = reader.GetDateTime(5)
+                        });
+                    }
+                    reader.Close();
+                });
+            return ListOfAllEmployees;
+        }
     }
 }
