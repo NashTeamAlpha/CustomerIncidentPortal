@@ -157,5 +157,26 @@ namespace CustomerIncidentPortalTests
             List<IncidentType> ListOfIncidentTypes = incidentFactory.GetIncidentTypes();
             Assert.AreEqual(ListOfIncidentTypes.Count, 7);
         }
+
+        [TestMethod]
+        public void TestIncidentsCanBeSelectedByEmployeeId()
+        {
+            IncidentFactory incidentFactory = new IncidentFactory();
+
+            Incident TestIncident = new Incident();
+            TestIncident.Resolution = "Resolved";
+            TestIncident.IsResolved = "True";
+            TestIncident.EmployeeId = 1;
+            TestIncident.OrderId = 1;
+            TestIncident.CustomerFirstName = "James";
+            TestIncident.CustomerLastName = "Regnier";
+            TestIncident.IncidentTypeId = 1;
+            TestIncident.Save();
+
+            List<Incident> IncidentsByEmployeeId = incidentFactory.GetIncidentsByEmployeeId(1);
+            Assert.IsNotNull(IncidentsByEmployeeId);
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            conn.insert("DELETE FROM Incidents WHERE Incidents.Resolution = 'Resolved' and Incidents.EmployeeId = '1' and Incidents.OrderId = '1'");
+        }
     }
 }
