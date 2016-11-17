@@ -65,7 +65,6 @@ namespace CustomerIncidentPortal.Actions
             }
 
             employee.IsAdmin = "false";
-
             employee.StartDate = DateTime.Today;
             try
             {
@@ -75,7 +74,8 @@ namespace CustomerIncidentPortal.Actions
             {
                 Action();
             }
-
+            Employee savedEmployee = employeeFactory.getEmployee(employee);
+            employee.EmployeeId = savedEmployee.EmployeeId;
             employeeFactory.ActiveEmployee = employee;
             MainMenu.Action();
             

@@ -1,11 +1,37 @@
 ﻿using CustomerIncidentPortal.Entities;
 using CustomerIncidentPortal.Data;
 using Microsoft.Data.Sqlite;
+using System.Collections.Generic;
 
 namespace CustomerIncidentPortal.Factories
 {
     public class IncidentFactory
     {
+        private static IncidentFactory _instance;
+        public static IncidentFactory Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new IncidentFactory();
+                }
+                return _instance;
+            }
+        }
+
+        private Incident _activeIncident = null;
+        public Incident ActiveIncident
+        {
+            get
+            {
+                return _activeIncident;
+            }
+            set
+            {
+                _activeIncident = value;
+            }
+        }
         public Incident getIncident(Incident incident)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
@@ -28,6 +54,26 @@ namespace CustomerIncidentPortal.Factories
                 reader.Close();
             });
             return i;
+        }
+        public List<IncidentType> GetIncidentTypes()
+        {
+            CustomerIncidentConnection Conn = new CustomerIncidentConnection();
+            List<IncidentType> incidentTypeList = new List<IncidentType>();
+
+            string query = $"select IncidentTypeId, IncidentTypeName from IncidentTypes";
+            Conn.execute(query, (SqliteDataReader reader) =>
+            {
+                while (reader.Read())
+                {
+                    incidentTypeList.Add(new IncidentType
+                    {
+                        IncidentTypeId = reader.GetInt32(0),
+                        IncidentTypeName = reader[1].ToString(),
+                    });
+                }
+                reader.Close();
+            });
+            return incidentTypeList;
         }
     }
 }
