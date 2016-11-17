@@ -22,7 +22,7 @@ namespace CustomerIncidentPortal.Actions
             Console.WriteLine($"Labels: \n *{ActiveIncidentType.Label1}");
             if (ActiveIncidentType.Label2 != "")
             {
-                Console.WriteLine($"*{ActiveIncidentType.Label2}");
+                Console.WriteLine($" *{ActiveIncidentType.Label2}");
             }
             if (ActiveIncident.IsResolved == "false")
             {
