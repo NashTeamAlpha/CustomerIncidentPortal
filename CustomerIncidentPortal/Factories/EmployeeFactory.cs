@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CustomerIncidentPortal.Entities;
 using CustomerIncidentPortal.Data;
 using Microsoft.Data.Sqlite;
@@ -58,7 +55,9 @@ namespace CustomerIncidentPortal.Factories
                         StartDate = reader.GetDateTime(5)
                     };
                 }
+                reader.Close();
             });
+
             return e;
         }
 
@@ -82,6 +81,7 @@ namespace CustomerIncidentPortal.Factories
                         StartDate = reader.GetDateTime(5)
                     });
                 }
+                reader.Close();
             });
             return EmployeeList;
         }

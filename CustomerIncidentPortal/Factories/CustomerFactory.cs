@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CustomerIncidentPortal.Entities;
 using CustomerIncidentPortal.Data;
 using Microsoft.Data.Sqlite;
@@ -28,6 +24,7 @@ namespace CustomerIncidentPortal.Factories
                         LastName = reader[2].ToString()
                     });
                 }
+                reader.Close();
             });
             return customerList;
         }
