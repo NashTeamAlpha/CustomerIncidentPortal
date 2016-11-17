@@ -37,7 +37,7 @@ namespace CustomerIncidentPortal.Actions
                 Incident SelectedIncident = ourIncidents.Where(i => i.IncidentId == Choice).Single();
 
                 incidentFactory.ActiveIncident = SelectedIncident;
-                //IncidentDetails.Action();
+                IncidentDetails.Action();
             }
 
             catch
