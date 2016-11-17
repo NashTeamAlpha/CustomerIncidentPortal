@@ -41,7 +41,6 @@ namespace CustomerIncidentPortal.Actions
             }
             else if (customerList.Count() == 1)
             {
-                Console.WriteLine(customerList.Count());
                 incidentFactory.ActiveIncident.CustomerFirstName = customerList[0].FirstName;
                 incidentFactory.ActiveIncident.CustomerLastName = customerList[0].LastName;
                 displayOrders(customerList[0].CustomerId);
