@@ -23,7 +23,7 @@ namespace CustomerIncidentPortal.Actions
             var userInput = Console.ReadLine();
             if (userInput == "1")
             {
-                Console.WriteLine("CreateIncident.Action()");
+                CreateIncident.Action();
             }
            else if (userInput == "2")
             {
