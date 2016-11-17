@@ -31,7 +31,7 @@ namespace CustomerIncidentPortal.Actions
 
                 DateTime dateHired = employee.StartDate;
 
-                Double averageClosedByMonth = Math.Floor(DateTime.Today.Subtract(dateHired).Days / (365.25 / 12))/numberOfClosedIncidents;
+                Double averageClosedByMonth = numberOfClosedIncidents / Math.Floor(DateTime.Today.Subtract(dateHired).Days / (365.25 / 12));
 
                 Console.WriteLine($"{employee.LastName, -10}, {employee.FirstName, -30} Open Incidents: {numberOfOpenIncidents, -10}  {averageClosedByMonth, -10}\r\n");
 
