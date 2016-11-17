@@ -14,7 +14,6 @@ namespace CustomerIncidentPortal.Actions
         {
             IncidentFactory incidentFactory = IncidentFactory.Instance;
             incidentFactory.ActiveIncident = new Incident();
-            //Banner.Action();
             Console.WriteLine("Enter the Customer First Name and Last Name");
             string customer = Console.ReadLine();
             string CustomerFirstName = null;
@@ -125,8 +124,8 @@ namespace CustomerIncidentPortal.Actions
                     incidentFactory.ActiveIncident.IsResolved = "false";
                     incidentFactory.ActiveIncident.Resolution = "";
                     incidentFactory.ActiveIncident.EmployeeId = employeeFactory.ActiveEmployee.EmployeeId;
-                    Console.WriteLine(incidentFactory.ActiveIncident);
                     incidentFactory.ActiveIncident.Save();
+                    //Should call the incident detail action
                     Console.ReadLine();
                 }
                 catch

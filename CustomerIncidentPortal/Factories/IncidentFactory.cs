@@ -71,6 +71,7 @@ namespace CustomerIncidentPortal.Factories
                         IncidentTypeName = reader[1].ToString(),
                     });
                 }
+                reader.Close();
             });
             return incidentTypeList;
         }

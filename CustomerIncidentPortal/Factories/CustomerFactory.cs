@@ -45,6 +45,7 @@ namespace CustomerIncidentPortal.Factories
                         CustomerId = reader.GetInt32(2)
                     });
                 }
+                reader.Close();
             });
             return orderList;
         }

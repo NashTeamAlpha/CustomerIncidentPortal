@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CustomerIncidentPortal.Entities;
 using CustomerIncidentPortal.Factories;
+using CustomerIncidentPortal.Data;
 
 namespace CustomerIncidentPortalTests
 {
@@ -120,11 +121,8 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(ShouldBeIncident.OrderId, TestIncident.OrderId);
             Assert.AreEqual(ShouldBeIncident.CustomerFirstName, TestIncident.CustomerFirstName);
             Assert.AreEqual(ShouldBeIncident.CustomerLastName, TestIncident.CustomerLastName);
-            //Assert.AreEqual(ShouldBeIncident.IncidentTypeId, TestIncident.IncidentTypeId);
-
-            //Take in input from user name, etc
-            //Goes to old DB
-            //Gets all orders for that name
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            conn.insert("DELETE FROM Incidents WHERE Incidents.Resolution = 'Resolved' and Incidents.EmployeeId = '1'");
 
         }
 
