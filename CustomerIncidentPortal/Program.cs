@@ -6,8 +6,7 @@ namespace CustomerIncidentPortal
     {
         static void Main(string[] args)
         {
-            //ChooseExistingEmployee.Action();
-            CreateIncident.Action();
+            ChooseExistingEmployee.Action();
         }
     }
 }

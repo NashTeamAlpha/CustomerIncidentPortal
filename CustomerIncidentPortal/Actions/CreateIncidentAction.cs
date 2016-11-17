@@ -14,7 +14,7 @@ namespace CustomerIncidentPortal.Actions
         {
             IncidentFactory incidentFactory = IncidentFactory.Instance;
             incidentFactory.ActiveIncident = new Incident();
-            Banner.Action();
+            //Banner.Action();
             Console.WriteLine("Enter the Customer First Name and Last Name");
             string customer = Console.ReadLine();
             string CustomerFirstName = null;
@@ -103,7 +103,7 @@ namespace CustomerIncidentPortal.Actions
         public static void displayIncidentTypes()
         {
             EmployeeFactory employeeFactory = EmployeeFactory.Instance;
-            IncidentFactory incidentFactory = new IncidentFactory();
+            IncidentFactory incidentFactory = IncidentFactory.Instance;
             List<IncidentType> listOfIncidents = incidentFactory.GetIncidentTypes();
             if (listOfIncidents.Count() == 0)
             {
@@ -124,9 +124,9 @@ namespace CustomerIncidentPortal.Actions
                     incidentFactory.ActiveIncident.IncidentTypeId = SelectedIncidentType.IncidentTypeId;
                     incidentFactory.ActiveIncident.IsResolved = "false";
                     incidentFactory.ActiveIncident.Resolution = "";
-                    //incidentFactory.ActiveIncident.EmployeeId = employeeFactory.ActiveEmployee.EmployeeId;
+                    incidentFactory.ActiveIncident.EmployeeId = employeeFactory.ActiveEmployee.EmployeeId;
                     Console.WriteLine(incidentFactory.ActiveIncident);
-                    //incidentFactory.ActiveIncident.Save();
+                    incidentFactory.ActiveIncident.Save();
                     Console.ReadLine();
                 }
                 catch

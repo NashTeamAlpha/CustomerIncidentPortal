@@ -1,6 +1,7 @@
 ﻿using CustomerIncidentPortal.Entities;
 using CustomerIncidentPortal.Data;
 using Microsoft.Data.Sqlite;
+using System.Collections.Generic;
 
 namespace CustomerIncidentPortal.Factories
 {
