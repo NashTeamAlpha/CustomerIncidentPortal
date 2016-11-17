@@ -15,7 +15,7 @@ namespace CustomerIncidentPortal.Actions
             Console.Clear();
             Banner.Action();
 
-            Console.WriteLine("\r\nHere are all of the employees, incidents and average closed per month:\r\n");
+            Console.WriteLine("\r\nEmployee                                   Incidents                   Average closed per month:\r\n");
 
             EmployeeFactory employeeFactory = EmployeeFactory.Instance;
             IncidentFactory incidentFactory = IncidentFactory.Instance;
@@ -33,7 +33,7 @@ namespace CustomerIncidentPortal.Actions
 
                 Double averageClosedByMonth = Math.Floor(DateTime.Today.Subtract(dateHired).Days / (365.25 / 12))/numberOfClosedIncidents;
 
-                Console.WriteLine($"{employee.LastName}, {employee.FirstName} Open Incidents: {numberOfOpenIncidents}  {averageClosedByMonth}\r\n");
+                Console.WriteLine($"{employee.LastName, -10}, {employee.FirstName, -30} Open Incidents: {numberOfOpenIncidents, -10}  {averageClosedByMonth, -10}\r\n");
 
 
             }
