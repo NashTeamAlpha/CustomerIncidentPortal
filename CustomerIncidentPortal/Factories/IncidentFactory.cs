@@ -75,5 +75,23 @@ namespace CustomerIncidentPortal.Factories
             });
             return incidentTypeList;
         }
+        public IncidentType GetSingleIncidentType(int IncidentTypeId)
+        {
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            IncidentType it = null;
+            conn.execute($"select IncidentTypeId, IncidentTypeName from IncidentTypes where IncidentTypeId = '{IncidentTypeId}'; ", (SqliteDataReader reader) =>
+            {
+                while (reader.Read())
+                {
+                    it = new IncidentType
+                    {
+                        IncidentTypeId = reader.GetInt32(0),
+                        IncidentTypeName = reader[1].ToString(),
+                    };
+                }
+                reader.Close();
+            });
+            return it;
+        }
     }
 }

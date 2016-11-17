@@ -157,5 +157,42 @@ namespace CustomerIncidentPortalTests
             List<IncidentType> ListOfIncidentTypes = incidentFactory.GetIncidentTypes();
             Assert.AreEqual(ListOfIncidentTypes.Count, 7);
         }
+
+        [TestMethod]
+        public void TestCanUpdateIncidentInDatabase()
+        {
+            Incident TestIncident = new Incident();
+            TestIncident.IncidentId = 1;
+            TestIncident.Resolution = "";
+            TestIncident.IsResolved = "false";
+            TestIncident.EmployeeId = 1;
+            TestIncident.OrderId = 1;
+            TestIncident.CustomerFirstName = "James";
+            TestIncident.CustomerLastName = "Regnier";
+            TestIncident.IncidentTypeId = 1;
+            TestIncident.Save();
+            TestIncident.Resolution = "Resolved";
+            TestIncident.IsResolved = "True";
+            TestIncident.Update();
+            IncidentFactory incidentFactory = new IncidentFactory();
+            incidentFactory.getIncident(TestIncident);
+            Assert.AreEqual(TestIncident.IsResolved, "True");
+            Assert.AreEqual(TestIncident.Resolution, "Resolved");
+            Assert.AreEqual(TestIncident.IncidentTypeId, 1);
+            Assert.AreEqual(TestIncident.CustomerFirstName, "James");
+            Assert.AreEqual(TestIncident.CustomerLastName, "Regnier");
+            Assert.AreEqual(TestIncident.EmployeeId, 1);
+            Assert.AreEqual(TestIncident.IncidentId, 1);
+            Assert.AreEqual(TestIncident.OrderId, 1);
+        }
+        [TestMethod]
+        public void TestGetSingleIncidentTypeNameFromDatabase()
+        {
+            IncidentFactory incidentFactory = new IncidentFactory();
+            IncidentType IncidentTypeFromDb = incidentFactory.GetSingleIncidentType(1);
+            Assert.AreEqual(IncidentTypeFromDb.IncidentTypeId, 1);
+            Assert.AreEqual(IncidentTypeFromDb.IncidentTypeName, "Defective Product");
+        }
+
     }
 }
