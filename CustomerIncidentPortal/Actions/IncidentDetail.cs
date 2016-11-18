@@ -12,6 +12,7 @@ namespace CustomerIncidentPortal.Actions
     {
         public static void Action()
         {
+            Console.Clear();
             IncidentFactory incidentFactory = IncidentFactory.Instance;
             Incident ActiveIncident = incidentFactory.ActiveIncident;
             IncidentType ActiveIncidentType = incidentFactory.GetSingleIncidentType(ActiveIncident.IncidentTypeId);
