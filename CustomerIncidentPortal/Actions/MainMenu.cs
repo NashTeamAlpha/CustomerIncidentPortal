@@ -27,11 +27,11 @@ namespace CustomerIncidentPortal.Actions
             }
            else if (userInput == "2")
             {
-                Console.WriteLine("ListIncidents.Action()");
+               ListIncidents.Action();
             }
             else if (userInput == "3" && employeeFactory.ActiveEmployee.IsAdmin == "True")
             {
-                Console.WriteLine("IncidentReport.Action()");
+                IncidentReport.Action();
             }
             else if (userInput == "x")
             {

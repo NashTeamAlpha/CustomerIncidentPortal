@@ -29,8 +29,8 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(Bob.StartDate, DateTime.Today);
         }
 
-       [TestMethod]
-       public void TestEmployeeCanBeSavedToDB()
+        [TestMethod]
+        public void TestEmployeeCanBeSavedToDB()
         {
             Employee Bob = new Employee();
             Bob.FirstName = "EmployeeFirstNameTest";
@@ -87,7 +87,7 @@ namespace CustomerIncidentPortalTests
         }
 
         [TestMethod]
-        public void TestEmployeeCanBeSelectedByNameAndMultiplesCanBeReturned ()
+        public void TestEmployeeCanBeSelectedByNameAndMultiplesCanBeReturned()
         {
             EmployeeFactory employeeFactory = EmployeeFactory.Instance;
 
@@ -123,6 +123,15 @@ namespace CustomerIncidentPortalTests
 
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
             conn.insert("DELETE FROM Employees WHERE Employees.FirstName = 'FirstNameTest'");
+        }
+
+        [TestMethod]
+        public void TestCanGetAllEmployees()
+        {
+            EmployeeFactory employeeFactory = EmployeeFactory.Instance;
+
+            List<Employee> ListOfAllEmployees = employeeFactory.GetAllEmployees();
+            Assert.IsTrue(ListOfAllEmployees.Count > 0);
         }
     }
 }

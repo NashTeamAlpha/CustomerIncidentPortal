@@ -159,6 +159,17 @@ namespace CustomerIncidentPortalTests
         }
 
         [TestMethod]
+        public void TestIncidentsCanBeSelectedByEmployeeId()
+        {
+            IncidentFactory incidentFactory = new IncidentFactory();
+
+            Incident TestIncident = new Incident();
+            TestIncident.Resolution = "Resolved";
+            TestIncident.IsResolved = "True";
+            List<Incident> IncidentsByEmployeeId = incidentFactory.GetIncidentsByEmployeeId(1);
+            Assert.IsNotNull(IncidentsByEmployeeId);
+        }
+
         public void TestCanUpdateIncidentInDatabase()
         {
             Incident TestIncident = new Incident();
@@ -184,7 +195,19 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(TestIncident.EmployeeId, 1);
             Assert.AreEqual(TestIncident.IncidentId, 1);
             Assert.AreEqual(TestIncident.OrderId, 1);
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            conn.insert("DELETE FROM Incidents WHERE Incidents.Resolution = 'Resolved' and Incidents.EmployeeId = '1' and Incidents.OrderId = '1'");
         }
+
+        [TestMethod]
+        public void TestCanGetAllIncidents()
+        {
+            IncidentFactory incidentFactory = IncidentFactory.Instance;
+
+            List<Incident> ListOfAllIncidents = incidentFactory.GetAllIncidents();
+            Assert.IsTrue(ListOfAllIncidents.Count > 0);
+        }
+
         [TestMethod]
         public void TestGetSingleIncidentTypeNameFromDatabase()
         {
@@ -193,6 +216,5 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(IncidentTypeFromDb.IncidentTypeId, 1);
             Assert.AreEqual(IncidentTypeFromDb.IncidentTypeName, "Defective Product");
         }
-
     }
 }

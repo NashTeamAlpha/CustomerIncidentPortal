@@ -55,6 +55,34 @@ namespace CustomerIncidentPortal.Factories
             });
             return i;
         }
+
+        public List<Incident> GetIncidentsByEmployeeId(int EmployeeId)
+        {
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            List<Incident> listOfIncidents = new List<Incident>();
+
+            conn.execute($"SELECT Incidents.IncidentId, Incidents.Resolution, Incidents.IsResolved, Incidents.EmployeeId, Incidents.OrderId, Incidents.CustomerFirstName, Incidents.CustomerLastName, Incidents.IncidentTypeId FROM Incidents Where Incidents.EmployeeId = {EmployeeId}",
+                (SqliteDataReader reader) =>
+                {
+                    while (reader.Read())
+                    {
+                        listOfIncidents.Add(new Incident
+                        {
+                            IncidentId = reader.GetInt32(0),
+                            Resolution = reader[1].ToString(),
+                            IsResolved = reader[2].ToString(),
+                            EmployeeId = reader.GetInt32(3),
+                            OrderId = reader.GetInt32(4),
+                            CustomerFirstName = reader[5].ToString(),
+                            CustomerLastName = reader[6].ToString(),
+                            IncidentTypeId = reader.GetInt32(7)
+                        });
+                    }
+                    reader.Close();
+                });
+            return listOfIncidents;
+        }
+
         public List<IncidentType> GetIncidentTypes()
         {
             CustomerIncidentConnection Conn = new CustomerIncidentConnection();
@@ -75,6 +103,34 @@ namespace CustomerIncidentPortal.Factories
             });
             return incidentTypeList;
         }
+
+        public List<Incident> GetAllIncidents()
+        {
+            CustomerIncidentConnection conn = new CustomerIncidentConnection();
+            List<Incident> ListOfAllIncidents = new List<Incident>();
+
+            conn.execute($"SELECT IncidentId, Resolution, IsResolved, EmployeeId, OrderId, CustomerFirstName, CustomerLastName, IncidentTypeId FROM Incidents",
+                (SqliteDataReader reader) =>
+                {
+                    while (reader.Read())
+                    {
+                        ListOfAllIncidents.Add(new Incident
+                        {
+                            IncidentId = reader.GetInt32(0),
+                            Resolution = reader[1].ToString(),
+                            IsResolved = reader[2].ToString(),
+                            EmployeeId = reader.GetInt32(3),
+                            OrderId = reader.GetInt32(4),
+                            CustomerFirstName = reader[5].ToString(),
+                            CustomerLastName = reader[6].ToString(),
+                            IncidentTypeId = reader.GetInt32(7)
+                        });
+                    }
+                    reader.Close();
+                });
+            return ListOfAllIncidents;
+        }
+
         public IncidentType GetSingleIncidentType(int IncidentTypeId)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
