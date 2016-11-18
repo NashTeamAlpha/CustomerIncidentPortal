@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace CustomerIncidentPortal.Entities
 {
+    //Class Name: IncidentType
+    //Author: Delaine Wendling, Chris Smalley, Jamie Duke
+    //Purpose of the class: Creates variables to be inherited by all related incidents.
+    //Methods in Class: none
+
     public class IncidentType
     {
         public int IncidentTypeId { get; set; }
