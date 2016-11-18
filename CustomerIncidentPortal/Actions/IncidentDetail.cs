@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CustomerIncidentPortal.Factories;
 using CustomerIncidentPortal.Entities;
 
@@ -10,8 +6,17 @@ namespace CustomerIncidentPortal.Actions
 {
     public class IncidentDetail
     {
+        //Class Name: IncidentDetail
+        //Authors: Delaine Wendling, Chris Smalley, Jamie Duke
+        //Purpose of the class: The purpose of this class is to create the view that displays a single incident and the details of this incident.
+        //Methods in Class:  Action().
+
         public static void Action()
         {
+            //Method Name: Action
+            //Purpose of the Method: This method creates an instance of the incident, creates the view of the incident for the user, including all relevant information. It then takes input from the user to update the resolution of the incident as necessary, saves this on the active instance of the incident, and calls for the update method on the incident entity to save this to the database. It then takes input from the user to go back to the main menu.
+            //Arguments in Method: This method does not take an argument. 
+
             Console.Clear();
             IncidentFactory incidentFactory = IncidentFactory.Instance;
             Incident ActiveIncident = incidentFactory.ActiveIncident;
