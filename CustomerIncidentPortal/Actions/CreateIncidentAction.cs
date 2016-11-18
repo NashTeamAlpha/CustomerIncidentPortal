@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CustomerIncidentPortal.Factories;
 using CustomerIncidentPortal.Entities;
 
 namespace CustomerIncidentPortal.Actions
 {
+    //Class Name: CreateIncident
+    //Author: Delaine Wendling, Chris Smalley, Jamie Duke
+    //Purpose of the class: The purpose of this class is to display the series of prompts that will allow am employee to create an incident and save it to the database
+    //Methods in Class: Action(), displayOrders(), displayIncidentType()
     public class CreateIncident
     {
+        //Method Name: Action
+        //Purpose of the Method: This method shows the prompts that ask the employee to type in the first and last name of the customer for whom the incident will be created. If there is more than one customer with that first and last name in the database the employee will be prompted to select the customer based on customer id. Once the customer has been selected, that customer's first and last name are added to the active incident singleton.
+        //Arguments in Method: No arguments passed into this method 
         public static void Action()
         {
             IncidentFactory incidentFactory = IncidentFactory.Instance;
@@ -67,6 +72,9 @@ namespace CustomerIncidentPortal.Actions
                 }
             }
         }
+        //Method Name: displayOrders
+        //Purpose of the Method: The purpose of this method is to take the customerId of the selected customer and display the orders, in the console, related to that customer. The employee is then prompted to select an order. Once the order has been selected, that order id is added to the active incident singleton.
+        //Arguments in Method: The customerId of the selected customer.
         public static void displayOrders(int CustomerId)
         {
             IncidentFactory incidentFactory = IncidentFactory.Instance;
@@ -98,6 +106,9 @@ namespace CustomerIncidentPortal.Actions
                 }
             }
         }
+        //Method Name: displayIncidentTypes
+        //Purpose of the Method: The purpose of this method is to grab all incident types from the database and display them on the screen. The employee can then select an incident type appropriate to the incident he/she is creating. Once an incident type has been selected, its id is added to the active incident singleton. The Employee id is also added by grabbing the active Employee id and the incident is saved to the database without a resolution. The employee is redirected to the incident details view.
+        //Arguments in Method: No arguments are passed into this method.
         public static void displayIncidentTypes()
         {
             EmployeeFactory employeeFactory = EmployeeFactory.Instance;
