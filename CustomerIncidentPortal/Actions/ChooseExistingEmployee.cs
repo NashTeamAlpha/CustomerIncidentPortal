@@ -6,8 +6,15 @@ using CustomerIncidentPortal.Entities;
 
 namespace CustomerIncidentPortal.Actions
 {
+    //Class Name: ChooseExistingEmployee
+    //Author: Zack Repass, Debbie Bourne, Grant Regnier
+    //Purpose of the class: The purpose of this class is to display the prompts in the console that allow the user to choose an existing employee. 
+    //Methods in Class: Action()
     public class ChooseExistingEmployee
     {
+        //Method Name: Action
+        //Purpose of the Method: This method asks the user to type in the first and last name on an employee, the user input is read and validated. If the employee exists, that employee is set to the active employee singleton and redirects to the main menu. If  new user is chosen it redirects to the NewUser action.
+        //Arguments in Method: No arguments passed to this method 
         public static void Action()
         {
 

@@ -7,9 +7,16 @@ using CustomerIncidentPortal.Data;
 
 namespace CustomerIncidentPortalTests
 {
+    //Class Name: EmployeeTest
+    //Author: Zack Repass, Debbie Bourne, Grant Regnier
+    //Purpose of the class: The purpose of this class is to test the core functionality of an employee
+    //Methods in Class: TestEmployeeCanBeCreated(), TestEmployeeCanBeSavedToDb(), TestEmployeeIsASingleton(), TestEmployeeFactoryIsASingleton(), TestEmployeeCanBeSelectedByNameAndMultipleCanBeReturned(), TestCanGetAllEmployees()
     [TestClass]
     public class EmployeeTest
     {
+        //Method Name: TestEmployeeCanBeCreated
+        //Purpose of the Method: To ensure that an object of type Employee can be created
+        //Arguments in Method: No arguments passed to this method 
         [TestMethod]
         public void TestEmployeeCanBeCreated()
         {
@@ -29,6 +36,9 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(Bob.StartDate, DateTime.Today);
         }
 
+        //Method Name: TestEmployeeCanBeSavedToDB
+        //Purpose of the Method: To ensure that an object of type Employee can be created, saved to the database, and returned successfully 
+        //Arguments in Method: No arguments passed to this method 
         [TestMethod]
         public void TestEmployeeCanBeSavedToDB()
         {
@@ -52,6 +62,9 @@ namespace CustomerIncidentPortalTests
             conn.insert("DELETE FROM Employees WHERE Employees.FirstName = 'EmployeeFirstNameTest'");
         }
 
+        //Method Name: TestEmployeeIsASingleton
+        //Purpose of the Method: To ensure that there is only one active employee at a time 
+        //Arguments in Method: No arguments passed to this method
         [TestMethod]
         public void TestEmployeeIsASingleton()
         {
@@ -78,6 +91,9 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(employeeFactory.ActiveEmployee, Test);
         }
 
+        //Method Name: TestEmployeeFactoryIsASingleton
+        //Purpose of the Method: To reinforce that there can only be one active employee at a time. Is essential to the singleton pattern because if more than one EmployeeFactory can be created then more than one employee singleton can be created. 
+        //Arguments in Method: No arguments passed to this method
         [TestMethod]
         public void TestEmployeeFactoryIsASingleton()
         {
@@ -86,6 +102,9 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(employeeFactory, employeeFactory2);
         }
 
+        //Method Name: TestEmployeeCanBeSelectedByNameAndMultiplesCanBeReturned
+        //Purpose of the Method: To test that the user can type in a first and last name for an employee and retrieve all instances of employees with that name from the database 
+        //Arguments in Method: No arguments passed to this method
         [TestMethod]
         public void TestEmployeeCanBeSelectedByNameAndMultiplesCanBeReturned()
         {
@@ -125,6 +144,9 @@ namespace CustomerIncidentPortalTests
             conn.insert("DELETE FROM Employees WHERE Employees.FirstName = 'FirstNameTest'");
         }
 
+        //Method Name: TestEmployeeGetAllEmployees
+        //Purpose of the Method: To test that we can get all of the Employees to display on the incident report 
+        //Arguments in Method: No arguments passed to this method
         [TestMethod]
         public void TestCanGetAllEmployees()
         {
