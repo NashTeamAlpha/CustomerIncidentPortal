@@ -6,8 +6,15 @@ using CustomerIncidentPortal.Entities;
 
 namespace CustomerIncidentPortal.Actions
 {
+    //Class Name: EmployeeFactory
+    //Author: Grant Regnier, Zack Repass, Debbie Bourne
+    //Purpose of the class: To list all incidents in the database with an EmployeeId matching the current ActiveEmployee singleton's EmployeeId. And to allow selection of the matching incidents to see detailed view.
+    //Methods in Class: Action()
     public class ListIncidents
     {
+        //Method Name: Action
+        //Purpose of the Method: This method provides a list of Incidents for the user to select, then setting the ActiveIncident Singleton to the selected incident. This method then calls the IncidentDetail() method.
+        //Arguments in Method: None.
         public static void Action()
         {
             Console.Clear();

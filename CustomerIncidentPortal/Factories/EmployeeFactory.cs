@@ -6,6 +6,10 @@ using Microsoft.Data.Sqlite;
 
 namespace CustomerIncidentPortal.Factories
 {
+    //Class Name: EmployeeFactory
+    //Author: Grant Regnier, Zack Repass, Debbie Bourne
+    //Purpose of the class: The purpose of this class is to provide the application access to an employee factory singleton and a singleton of the employee. This also gets employees from the database with SQL querys passed to our connection files.
+    //Methods in Class: getEmployee(Employee employee), GetEmployeeByName(string FirstName, string LastName), GetAllEmployees())
     public class EmployeeFactory
     {
 
@@ -35,6 +39,9 @@ namespace CustomerIncidentPortal.Factories
             }
         }
 
+        //Method Name: GetEmployee(Employee employee)
+        //Purpose of the Method: This method takes an instance of Employee, then retrieves that Employee from the Database.
+        //Arguments in Method: An instance of Employee.
         public Employee getEmployee(Employee employee)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
@@ -61,6 +68,9 @@ namespace CustomerIncidentPortal.Factories
             return e;
         }
 
+        //Method Name: GetEmployeeByName
+        //Purpose of the Method: This method takes two string parameters and querys the Database with them where Employee first and last name are equal to them.
+        //Arguments in Method: Takes two strings, the first is for the FirstName, the second is for the LastName.
         public List<Employee> GetEmployeeByName (String FirstName, String LastName)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
@@ -86,6 +96,9 @@ namespace CustomerIncidentPortal.Factories
             return EmployeeList;
         }
 
+        //Method Name: GetAllEmployees
+        //Purpose of the Method: This Method Returns a List of all employees. 
+        //Arguments in Method: No arguments
         public List<Employee> GetAllEmployees()
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
