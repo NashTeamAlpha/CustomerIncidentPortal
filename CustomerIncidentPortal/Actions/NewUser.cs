@@ -7,19 +7,19 @@ using CustomerIncidentPortal.Factories;
 
 namespace CustomerIncidentPortal.Actions
 {
+    //Class Name: NewUser
+    //Author: Zack Repass, Grant Regnier, Debbie Bourne
+    //Purpose of the class: The purpose of this class is to create the view that will prompt the user for the last name, first name, and department of a new user.
+    //Methods in Class: Action().
+
     public class NewUser
     {
-        //Class Name: NewUser
-        //Author: Zack Repass, Grant Regnier, Debbie Bourne
-        //Purpose of the class: The purpose of this class is to create the view that will prompt the user for the last name, first name, and department of a new user.
-        //Methods in Class: Action().
+        //Method Name: Action
+        //Purpose of the Method: This method creates the view so the last name and first name of a new employee can be entered and then the department can be chosen from a list. This information is then saved to the active instance of the employee, the save method on the Employee entity is called to save the new user in the database. Then the main menu view is called to return the user to the main menu.
+        //Arguments in Method: This method does not take arguments 
 
         public static void Action()
         {
-            //Method Name: Action
-            //Purpose of the Method: This method creates the view so the last name and first name of a new employee can be entered and then the department can be chosen from a list. This information is then saved to the active instance of the employee, the save method on the Employee entity is called to save the new user in the database. Then the main menu view is called to return the user to the main menu.
-            //Arguments in Method: This method does not take arguments 
-
             Console.Clear();
             Banner.Action();
 
