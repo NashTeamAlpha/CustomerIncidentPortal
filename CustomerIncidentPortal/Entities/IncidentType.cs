@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CustomerIncidentPortal.Entities
+﻿namespace CustomerIncidentPortal.Entities
 {
     //Class Name: IncidentType
     //Author: Delaine Wendling, Chris Smalley, Jamie Duke
