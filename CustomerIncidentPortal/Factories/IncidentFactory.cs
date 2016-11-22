@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 namespace CustomerIncidentPortal.Factories
 {
+    //Class Name: IncidentFactory
+    //Author: Delaine Wendling, Chris Smalley, Jamie Duke
+    //Purpose of the class: Creating a singleton for an active incident, retrieving an incident from the database, retrieving a list of incidents from the database by querying the employee id, retrieving incident types from the database, and anything else handling the Incident entity. 
+    //Methods in Class: getInident(), GetIncidentsByEmployeeId(), GetIncidentTypes(), GetAllIncidents(),  GetSingleIncidentType()
     public class IncidentFactory
     {
         private static IncidentFactory _instance;
@@ -32,6 +36,9 @@ namespace CustomerIncidentPortal.Factories
                 _activeIncident = value;
             }
         }
+        //Method Name: getIncident
+        //Purpose of the Method: this method takes an instance of Incident and takes that incident from the db
+        //Arguments in Method:  an instance of Incident
         public Incident getIncident(Incident incident)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
@@ -56,6 +63,9 @@ namespace CustomerIncidentPortal.Factories
             return i;
         }
 
+        //Method Name:  GetIncidentsByEmployeeId
+        //Purpose of the Method: this method creates a list of incidents from a specific employeeId
+        //Arguments in Method:  an EmployeeId int
         public List<Incident> GetIncidentsByEmployeeId(int EmployeeId)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
@@ -83,6 +93,9 @@ namespace CustomerIncidentPortal.Factories
             return listOfIncidents;
         }
 
+        //Method Name:  GetIncidentTypes
+        //Purpose of the Method: this method creates a list of incidents from a specific incidentType
+        //Arguments in Method: n/a
         public List<IncidentType> GetIncidentTypes()
         {
             CustomerIncidentConnection Conn = new CustomerIncidentConnection();
@@ -104,6 +117,10 @@ namespace CustomerIncidentPortal.Factories
             return incidentTypeList;
         }
 
+
+        //Method Name:  GetAllIncients
+        //Purpose of the Method: this method creates a list of every incident in the db
+        //Arguments in Method: n/a
         public List<Incident> GetAllIncidents()
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
@@ -131,6 +148,9 @@ namespace CustomerIncidentPortal.Factories
             return ListOfAllIncidents;
         }
 
+        //Method Name:  GetSingleIncidentType
+        //Purpose of the Method: this method retrieves the IncidentType from the database to list on the incident detail action
+        //Arguments in Method: a specific incidentType int
         public IncidentType GetSingleIncidentType(int IncidentTypeId)
         {
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
