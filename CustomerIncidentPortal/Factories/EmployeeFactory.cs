@@ -9,7 +9,7 @@ namespace CustomerIncidentPortal.Factories
     //Class Name: EmployeeFactory
     //Author: Grant Regnier, Zack Repass, Debbie Bourne
     //Purpose of the class: The purpose of this class is to provide the application access to an employee factory singleton and a singleton of the employee. This also gets employees from the database with SQL querys passed to our connection files.
-    //Methods in Class: getEmployee(Employee employee), GetEmployeeByName(string FirstName, string LastName), GetAllEmployees())
+    //Methods in Class: getEmployee(Employee employee), GetEmployeeByName(string FirstName, string LastName), GetAllEmployees()
     public class EmployeeFactory
     {
 
