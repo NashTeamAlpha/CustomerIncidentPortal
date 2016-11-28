@@ -7,9 +7,17 @@ using CustomerIncidentPortal.Data;
 
 namespace CustomerIncidentPortalTests
 {
+    //Class Name: IncidentTest
+    //Author: Delaine Wendling, Chris Smalley, Jamie Duke
+    //Purpose of the class: This class is for testing that incidents can be created, customers can be assigned to customers, singletons for incident factories and incidents can be created, and that all of the above can be accessed and saved to the database. 
+    //Methods in Class: TestGetCustomerToAddToIncident(), TestGetOrdersToAddToIncidentThatMatchCustomer(), TestIncidentIsASingleton(), TestIncidentFactoryIsASingleton(), TestCanCreateIncident(), TestCanSaveIncidentToDatabase(), TestCanCreateOrder(), TestCanCreateIncidentType(), TestCanGetIncident(), TestIncidentsCanBeSelectedByEmployeeId(), TestCanUpdateIncidentInDatabase(), TestCanGetAllIncidents(), TestGetSingleIncidentTypeNameFromDatabase()
+
     [TestClass]
     public class IncidentTest
     {
+        //Method Name: TestGetCustomerToAddToIncident
+        //Purpose of the Method: Testing that customer can be retrieved from a list of customers by first and last name. 
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestGetCustomerToAddToIncident()
         {
@@ -24,7 +32,9 @@ namespace CustomerIncidentPortalTests
                 Assert.AreEqual(TestCustomer.LastName, Customers[i].LastName);
             }
         }
-
+        //Method Name: TestGetOrdersToAddToIncidentThatMatchCustomer
+        //Purpose of the Method: Testing that the correct order is grabbed from the selected customer.
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestGetOrdersToAddToIncidentThatMatchCustomer()
         {
@@ -37,7 +47,9 @@ namespace CustomerIncidentPortalTests
                 Assert.AreEqual(testOrder.CustomerId, orders[i].CustomerId);
             }
         }
-
+        //Method Name: TestIncidentIsASingleton
+        //Purpose of the Method: To ensure that there is only one active incident for each user at one time. 
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestIncidentIsASingleton()
         {
@@ -69,7 +81,9 @@ namespace CustomerIncidentPortalTests
             incidentFactory.ActiveIncident = TestIncident2;
             Assert.AreEqual(incidentFactory.ActiveIncident, TestIncident2);
         }
-
+        //Method Name: TestIncidentFactoryIsASingleton
+        //Purpose of the Method: To reinforce that there can only be one active incident at a time. Is essential to the singleton pattern because if more than one IncidentFactory can be created then more than one incident singleton can be created.
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestIncidentFactoryIsASingleton()
         {
@@ -77,7 +91,9 @@ namespace CustomerIncidentPortalTests
             IncidentFactory incidentFactory2 = IncidentFactory.Instance;
             Assert.AreEqual(incidentFactory, incidentFactory2);
         }
-
+        //Method Name: TestCanCreateIncident
+        //Purpose of the Method: To ensure that an object of type Incident can be created
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestCanCreateIncident()
         {
@@ -100,7 +116,9 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(TestIncident.CustomerLastName, "Regnier");
             Assert.AreEqual(TestIncident.IncidentTypeId, 1);
         }
-
+        //Method Name: TestCanSaveIncidentToDatabase
+        //Purpose of the Method: To ensure that an object of type Incident can be saved to the db and returned successfully
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestCanSaveIncidentToDatabase()
         {
@@ -125,7 +143,9 @@ namespace CustomerIncidentPortalTests
             conn.insert("DELETE FROM Incidents WHERE Incidents.Resolution = 'Resolved' and Incidents.EmployeeId = '1'");
 
         }
-
+        //Method Name: TestCanCreateOrder
+        //Purpose of the Method: To ensure that an object of type Order can be created
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestCanCreateOrder()
         {
@@ -138,7 +158,9 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(TestOrder.DateCompleted, "2016-11-10");
             Assert.AreEqual(TestOrder.CustomerId, 1);
         }
-
+        //Method Name: TestCanCreateIncidentType
+        //Purpose of the Method: To ensure that an object of type IncidentType can be created
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestCanCreateIncidentType()
         {
@@ -149,7 +171,9 @@ namespace CustomerIncidentPortalTests
             Assert.AreEqual(TestIncidentType.IncidentTypeId, 1);
             Assert.AreEqual(TestIncidentType.IncidentTypeName, "Defective Product");
         }
-
+        //Method Name: TestCanGetIncident
+        //Purpose of the Method: To ensure that an object of type IncidentType can be collected into a list
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestCanGetIncident()
         {
@@ -157,7 +181,9 @@ namespace CustomerIncidentPortalTests
             List<IncidentType> ListOfIncidentTypes = incidentFactory.GetIncidentTypes();
             Assert.AreEqual(ListOfIncidentTypes.Count, 7);
         }
-
+        //Method Name: TestCanGetIncident
+        //Purpose of the Method: To ensure that an object of type Incident can be retrieved with the EmployeeId
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestIncidentsCanBeSelectedByEmployeeId()
         {
@@ -169,7 +195,10 @@ namespace CustomerIncidentPortalTests
             List<Incident> IncidentsByEmployeeId = incidentFactory.GetIncidentsByEmployeeId(1);
             Assert.IsNotNull(IncidentsByEmployeeId);
         }
-
+        //Method Name: TestCanUpdateIncidentInDatabase
+        //Purpose of the Method: To ensure that an object of type Incident can be updated in the database
+        //Arguments in Method: N/A
+        [TestMethod]
         public void TestCanUpdateIncidentInDatabase()
         {
             Incident TestIncident = new Incident();
@@ -198,7 +227,9 @@ namespace CustomerIncidentPortalTests
             CustomerIncidentConnection conn = new CustomerIncidentConnection();
             conn.insert("DELETE FROM Incidents WHERE Incidents.Resolution = 'Resolved' and Incidents.EmployeeId = '1' and Incidents.OrderId = '1'");
         }
-
+        //Method Name: TestCanUpdateIncidentInDatabase
+        //Purpose of the Method: To ensure that an object of type Incident can be updated in the database
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestCanGetAllIncidents()
         {
@@ -207,7 +238,9 @@ namespace CustomerIncidentPortalTests
             List<Incident> ListOfAllIncidents = incidentFactory.GetAllIncidents();
             Assert.IsTrue(ListOfAllIncidents.Count > 0);
         }
-
+        //Method Name: TestGetSingleIncidentTypeNameFromDatabase
+        //Purpose of the Method: To ensure that an object of type IncidentType can be retrieved in the database
+        //Arguments in Method: N/A
         [TestMethod]
         public void TestGetSingleIncidentTypeNameFromDatabase()
         {
