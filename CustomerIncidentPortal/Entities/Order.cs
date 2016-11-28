@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CustomerIncidentPortal.Entities
+﻿namespace CustomerIncidentPortal.Entities
 {
+    //Class Name: Order
+    //Author:Jamie, Chris, Delaine
+    //Purpose of the class: The purpose of this class is to act as a model for our SQL reader to format data from a temporary table returned from a SQL query to the Database. 
+    //Methods in Class: None.
     public class Order
     {
         public int OrderId { get; set; }

@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CustomerIncidentPortal.Factories;
 using CustomerIncidentPortal.Entities;
 
 namespace CustomerIncidentPortal.Actions
 {
+    //Class Name: Incident Report
+    //Author: Debbie, Zack, Grant
+    //Purpose of the class: The purpose of this class is to manage the methods that will produce the data and functionality needed for the incident report.
+    //Methods in Class: Action()
     public class IncidentReport
     {
+        //Method Name: Action
+        //Purpose of the Method: This method calculates the average number of closed incidents per month for each employee in the database.
+        //Arguments in Method: No arguments passed in this method. 
         public static void Action()
         {
             Console.Clear();
